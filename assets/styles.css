@@ -1,0 +1,215 @@
+/* Smartphone Photo Basics — warm, calm, friendly. */
+
+:root {
+  --paper: #fbf6ef;
+  --ink: #3c322a;
+  --soft: #7a6a5c;
+  --accent: #c96f4a;
+  --accent-dark: #a9532f;
+  --card: #fffdf9;
+  --line: #eadfd2;
+  --quote: #f4ebe0;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+a { color: var(--accent-dark); }
+a:hover { color: var(--accent); }
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.85em;
+  background: var(--quote);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* header */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0 1rem;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+.brand a { text-decoration: none; color: var(--accent-dark); }
+
+.tagline {
+  margin: 0.2rem 0 0.9rem;
+  color: var(--soft);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+}
+.chapters a {
+  text-decoration: none;
+  font-size: 0.82rem;
+  color: var(--soft);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.22rem 0.7rem;
+}
+.chapters a:hover { border-color: var(--accent); color: var(--accent-dark); }
+.chapters a.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fffdf9;
+}
+
+/* content */
+main { padding: 2.2rem 0 1rem; }
+
+h1, h2, h3 {
+  line-height: 1.25;
+  color: var(--ink);
+}
+h1 {
+  font-size: 2rem;
+  margin: 0.2rem 0 1rem;
+  text-wrap: balance;
+}
+h2 { font-size: 1.35rem; margin: 2.2rem 0 0.6rem; }
+h3 { font-size: 1.08rem; margin: 1.6rem 0 0.4rem; }
+
+p { margin: 0.7rem 0; }
+
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.2rem;
+  background: var(--quote);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2.2rem 0;
+}
+
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.35rem 0; }
+
+/* checklist */
+ul.checklist {
+  list-style: none;
+  padding-left: 0.2rem;
+}
+ul.checklist li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+ul.checklist .box {
+  flex: none;
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  transform: translateY(0.12em);
+}
+ul.checklist .box.checked {
+  background: var(--accent);
+}
+
+/* pager */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2.5rem;
+}
+.pager a {
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+/* home page */
+main.home .hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.4rem;
+}
+main.home .lede {
+  font-size: 1.18rem;
+  color: var(--soft);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.cards {
+  margin-top: 2.5rem;
+}
+.cards h2 { margin-bottom: 1rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
+  margin: 0.9rem 0;
+}
+.card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.12rem;
+}
+.card h3 a { text-decoration: none; }
+.card p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.95rem;
+}
+
+.companions {
+  margin-top: 2.6rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--quote);
+  border-radius: 10px;
+}
+.companions h2 { margin-top: 0.2rem; }
+.companions li { margin: 0.5rem 0; }
+
+/* footer */
+footer {
+  border-top: 1px solid var(--line);
+  background: var(--card);
+  padding: 1.6rem 0 2rem;
+  color: var(--soft);
+  font-size: 0.9rem;
+}
+footer p { margin: 0.25rem 0; }
+
+@media print {
+  .site-header .chapters, .pager { display: none; }
+  body { background: white; font-size: 12pt; }
+  .card, blockquote, .companions { break-inside: avoid; }
+}
